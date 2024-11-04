@@ -6,7 +6,7 @@ interface JwtPayloadWithUser extends jwt.JwtPayload {
 }
 
 export const auth = (req: Request, res: Response, next: NextFunction): void => {
-    const token = req.header('x-auth-token');
+    const token = req.header('Aa');
 
     if (!token) {
         res.status(401).json({ msg: 'No token, authorization denied' });
