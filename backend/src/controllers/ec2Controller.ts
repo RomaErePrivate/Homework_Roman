@@ -4,7 +4,10 @@ import { Request, Response } from 'express';
 export const listInstances = async (req: Request, res: Response) => {
     try {
         const ec2Service = new Ec2Service();
-        const { page, limit, sortBy, sortOrder } = req.body;
+        const page = parseInt(req.query.page as string) || 1;
+        const limit = parseInt(req.query.limit as string) || 10;
+        const sortBy = req.query.sortBy as string || 'name';
+        const sortOrder = (req.query.sortOrder as string === 'desc') ? 'desc' : 'asc';
         const instanceData = await ec2Service.getInstances({ page, limit }, sortBy, sortOrder);
         res.json(instanceData);
     } catch (err) {

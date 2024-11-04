@@ -6,12 +6,14 @@ interface JwtPayloadWithUser extends jwt.JwtPayload {
 }
 
 export const auth = (req: Request, res: Response, next: NextFunction): void => {
-    const token = req.header('Aa');
+    const authHeader = req.header('Authorization');
 
-    if (!token) {
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
         res.status(401).json({ msg: 'No token, authorization denied' });
         return;
     }
+
+    const token = authHeader.split(' ')[1];
 
     try {
         const decoded = jwt.verify(token, 'your_jwt_secret') as JwtPayloadWithUser;

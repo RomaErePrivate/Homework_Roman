@@ -26,7 +26,7 @@ export class Ec2Service {
         });
     }
 
-    async getInstances(pagination: Pagination, sortBy?: string, sortOrder: 'asc' | 'desc' = 'asc'): Promise<EC2InstanceResponse[]> {
+    async getInstances(pagination: Pagination, sortBy: string = 'name', sortOrder: 'asc' | 'desc'): Promise<EC2InstanceResponse[]> {
         const instances = this.mapToInstances(await this.fetchEc2Data());
         const sortedInstances = this.sort(instances, sortBy || 'name', sortOrder);
         const startIndex = (pagination.page - 1) * pagination.limit;

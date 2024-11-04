@@ -1,0 +1,23 @@
+.autosize-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.autosize-table th, .autosize-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.autosize-table th {
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+.autosize-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.autosize-table tr:hover {
+    background-color: #ddd;
+}
