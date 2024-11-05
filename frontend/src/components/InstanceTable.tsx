@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../axiosConfig';
+import './InstanceTable.css';
 
 interface Instance {
     id: string;
@@ -53,18 +54,26 @@ const InstanceTable = () => {
         fetchData(nextPage, sortField, sortOrder);
     };
 
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            const prevPage = currentPage - 1;
+            setCurrentPage(prevPage);
+            fetchData(prevPage, sortField, sortOrder);
+        }
+    };
+
     return (
         <div>
             <table>
                 <thead>
                 <tr>
-                    <th onClick={() => handleSort('name')}>Name</th>
-                    <th onClick={() => handleSort('id')}>ID</th>
-                    <th onClick={() => handleSort('type')}>Type</th>
-                    <th onClick={() => handleSort('state')}>State</th>
-                    <th onClick={() => handleSort('az')}>AZ</th>
-                    <th onClick={() => handleSort('publicIP')}>Public IP</th>
-                    <th onClick={() => handleSort('privateIP')}>Private IP</th>
+                    <th onClick={() => handleSort('name')}>Name &uarr; &darr;</th>
+                    <th onClick={() => handleSort('id')}>ID &uarr; &darr;</th>
+                    <th onClick={() => handleSort('type')}>Type &uarr; &darr;</th>
+                    <th onClick={() => handleSort('state')}>State &uarr; &darr;</th>
+                    <th onClick={() => handleSort('az')}>AZ &uarr; &darr;</th>
+                    <th onClick={() => handleSort('publicIP')}>Public IP &uarr; &darr;</th>
+                    <th onClick={() => handleSort('privateIP')}>Private IP &uarr; &darr;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -82,7 +91,8 @@ const InstanceTable = () => {
                 </tbody>
             </table>
             <div>
-                <button onClick={handleNextPage}>Next Page</button>
+                <button className='button' onClick={handlePrevPage}>Prev Page</button>
+                <button className='button' onClick={handleNextPage}>Next Page</button>
             </div>
         </div>
     );

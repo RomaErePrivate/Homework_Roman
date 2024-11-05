@@ -1,23 +1,64 @@
-.autosize-table {
+table {
     width: 100%;
     border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
-.autosize-table th, .autosize-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+table th, table td {
+    padding: 12px 15px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-.autosize-table th {
-    cursor: pointer;
+table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.autosize-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+table tr:hover {
+    background-color: #f1f1f1;
 }
 
-.autosize-table tr:hover {
-    background-color: #ddd;
+table td {
+    color: #333;
+}
+
+table th:first-child, table td:first-child {
+    border-left: 1px solid #ddd;
+}
+
+table th:last-child, table td:last-child {
+    border-right: 1px solid #ddd;
+}
+
+.button {
+    padding: 10px 20px;
+    margin: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+.button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
 }

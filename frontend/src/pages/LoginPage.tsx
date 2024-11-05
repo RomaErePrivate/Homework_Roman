@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm';
 const LoginPage = () => {
     return (
         <div>
-            <h2>Login</h2>
+            <h2 style={{ textAlign: "center" }}>Login</h2>
             <LoginForm />
         </div>
     );
