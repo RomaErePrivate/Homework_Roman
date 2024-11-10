@@ -8,6 +8,7 @@ It includes a frontend for user interaction and a backend for handling API reque
  - Backend: Express, TypeScript, MongoDB
  - Package Manager: npm
  - Version Control: GitHub
+ - Deployment: AWS S3, AWS EC2
 
 ## Setup Instructions
 Prerequisites
@@ -24,7 +25,7 @@ Prerequisites
 ```
 AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
-AWS_REGION=AWS_REGION_OF_EC@
+AWS_REGION=AWS_REGION_OF_EC2
 MONGODB_URI="mongodb://localhost:27017/"
 ```
 Variables can be provided in private message to working sandbox.
